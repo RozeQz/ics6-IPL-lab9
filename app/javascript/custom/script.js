@@ -57,7 +57,7 @@ function show_result(data) {
                         <tr>
                             <td> ${ j + 1 } </td>
                             <td> ${ num_arr[j] } </td>
-                            <td id="square${ j+1 }"> ${ num_arr[j]**2 } </td>
+                            <td id="square${ j }"> ${ num_arr[j]**2 } </td>
                         </tr>`;
                     }
                     break;
