@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Лаборатнорная работа №9 по дисциплине "Языки интернет программирования" 3-его семестра кафедры "Компьютерные системы и сети".
+Некоторые идеи взяты у MrAlexol.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Запуск системных тестов
+rails test:system
