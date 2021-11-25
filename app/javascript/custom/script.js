@@ -9,7 +9,6 @@ function send_query() {
     let input_number = document.getElementById("input_number");
     console.log(input_number.value)
     let param_str = "?n=" + input_number.value;
-    if (param_str == "?n=") return false;
     let received_data = [];
     var http_request = new XMLHttpRequest();
     http_request.open("GET", palindrome_url + param_str, true);
@@ -29,11 +28,11 @@ function show_result(data) {
     let input_output = document.getElementById("input_output");
     let answer_output = document.getElementById("answer_output");
     let table = document.getElementById("table_result");
-    let error_output_el = document.getElementById("error_output");
+    let error_output = document.getElementById("error_output");
     input_output.style.display = "block";
     answer_output.style.display = "block";
     table.style.display = "none";
-    error_output_el.style.display = "none";
+    error_output.style.display = "none";
     input_output.innerText = `You entered: ${document.getElementById("input_number").value}`;
 
     for (let i = 0; i < table.tBodies.length; i++) {
@@ -62,10 +61,13 @@ function show_result(data) {
                     }
                     break;
                 }
-                case "error":
-                    if (data[i].type !== "NilClass")
-                    throw new Error(data[i].value);
+                case "error": {
+                    if (data[i].type !== "NilClass"){
+                        error_output.innerText = data[i].value;
+                        throw new Error(data[i].value);
+                    }
                     break;
+                }
             }
         }
     console.log(data);
@@ -73,7 +75,7 @@ function show_result(data) {
     }
     catch(e) {
         console.error(e);
-        error_output_el.innerText = e.message;
-        error_output_el.style.display = "block";
+        error_output.style.display = "block";
+        answer_output.style.display = "none";
     }
 }
