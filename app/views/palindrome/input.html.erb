@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> %>
-
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <style>
+    #my_table{
+        width: 100%;
+    }
     .container{
       margin-top: 50px;
       margin-bottom: 50px;
@@ -37,17 +37,17 @@
         <%= form_tag "#", id: 'palindrome_form', :method => "get", remote: true do %> 
 
             <%= label_tag :n, "Input n: " %> 
-            <%= text_field_tag :n, '', id: 'input_number' %> <br/><br/>        <%#(:n, default_value)%>
+            <%= text_field_tag :n, '', id: 'input_number', required: true %> <br/><br/>        <%#(:n, default_value)%>
 
             <%= button_tag "Find palindromes", type: 'submit', id: 'btn_commit', class: 'btn btn-primary' %>
         <% end %>
-        <p id="error_output" style="display:none" class="text-danger"></p>
-    </div>
+    </div><br/>
+    <div id="error_output" style="display:none" class="text-danger"></div>
     <div id="input_output" style="display:none"></div>
-    <div id="answer_output" style="display:none"></div>
-    <div>
+    <div id="answer_output" style="display:none"></div><br/>
+    <div id="my_table">
         <table id="table_result" style="display:none" class="table table-striped">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Number</th>
