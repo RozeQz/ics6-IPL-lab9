@@ -37,20 +37,23 @@
         <%= form_tag "#", id: 'palindrome_form', :method => "get", remote: true do %> 
 
             <%= label_tag :n, "Input n: " %> 
-            <%= text_field_tag :n, '', id: 'input_number', required: true%> <br/><br/>        <%#(:n, default_value)%>
+            <%= text_field_tag :n, '', id: 'input_number' %> <br/><br/>        <%#(:n, default_value)%>
 
             <%= button_tag "Find palindromes", type: 'submit', id: 'btn_commit', class: 'btn btn-primary' %>
         <% end %>
-        <p id="error_output" class="text-danger"></p>
+        <p id="error_output" style="display:none" class="text-danger"></p>
     </div>
-    <div id="typed_output" ></div>
+    <div id="input_output" style="display:none"></div>
+    <div id="answer_output" style="display:none"></div>
     <div>
-        <table id="table_result" class="table table-striped" id="result_table">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Number</th>
-                <th scope="col">Square</th>
-            </tr>
+        <table id="table_result" style="display:none" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Square</th>
+                </tr>
+            </thead>
         </table>
     </div>
 </div>
