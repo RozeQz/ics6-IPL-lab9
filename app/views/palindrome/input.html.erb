@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Palindromes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <style>
+    .container{
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .error{
+      color: red;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Palindromes</h1>
+    <p>     Определить количество неотрицательных целых чисел ≤ n (n
+            вводится с клавиатуры), квадрат которых является палиндромом. Например:
+            26^2 = 676.
+    </p><br/>
+
+    <div>
+        <%= form_tag "#", id: 'palindrome_form', :method => "get", remote: true do %> 
+
+            <%= label_tag :n, "Input n: " %> 
+            <%= text_field_tag :n, '', id: 'input_number', required: true%> <br/><br/>        <%#(:n, default_value)%>
+
+            <%= button_tag "Find palindromes", type: 'submit', id: 'btn_commit', class: 'btn btn-primary' %>
+        <% end %>
+        <p id="error_output" class="text-danger"></p>
+    </div>
+    <div id="typed_output" ></div>
+    <div>
+        <table id="table_result" class="table table-striped" id="result_table">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Number</th>
+                <th scope="col">Square</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
