@@ -30,14 +30,6 @@ class PalindromeController < ApplicationController
   private
 
   def palindrome?(number)
-    temp = number
-    rev_number = 0
-    loop do
-      rev_number *= 10
-      rev_number += temp % 10
-      temp /= 10
-      break if temp.zero?
-    end
-    number == rev_number
+    number.to_s == number.to_s.reverse
   end
 end
