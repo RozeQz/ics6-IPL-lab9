@@ -4,4 +4,6 @@
 Некоторые идеи взяты у MrAlexol (https://github.com/MrAlexol).
 
 ## Запуск системных тестов
+```bash
 rails test:system
+```
