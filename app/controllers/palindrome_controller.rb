@@ -8,13 +8,14 @@ class PalindromeController < ApplicationController
 
   def view
     raise StandardError if params[:n].length.zero?
+
     @input = Integer(params[:n])
     @numbers = (0..@input).select { |i| palindrome?(i * i) }
     @result = @numbers.size
   rescue ArgumentError
     @error = 'Incorrect input'
   rescue StandardError
-    @error = 'You have to enter something'  
+    @error = 'You have to enter something'
   ensure
     respond_to do |format|
       format.html
@@ -39,5 +40,4 @@ class PalindromeController < ApplicationController
     end
     number == rev_number
   end
-
 end
