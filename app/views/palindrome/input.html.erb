@@ -31,7 +31,7 @@
     <p>     Определить количество неотрицательных целых чисел ≤ n (n
             вводится с клавиатуры), квадрат которых является палиндромом. Например:
             26^2 = 676.
-    </p><br/>
+    </p>
 
     <div>
         <%= form_tag "#", id: 'palindrome_form', :method => "get", remote: true do %> 
@@ -39,7 +39,7 @@
             <%= label_tag :n, "Input n: " %> 
             <%= text_field_tag :n, '', id: 'input_number', required: true %> <br/><br/>        <%#(:n, default_value)%>
 
-            <%= button_tag "Find palindromes", type: 'submit', id: 'btn_commit', class: 'btn btn-primary' %>
+            <%= button_tag "Найти палиндромы", type: 'submit', name: nil, id: 'btn_commit', class: 'btn btn-primary' %>
         <% end %>
     </div><br/>
     <div id="error_output" style="display:none" class="text-danger"></div>
@@ -50,8 +50,8 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Number</th>
-                    <th scope="col">Square</th>
+                    <th scope="col">Число</th>
+                    <th scope="col">Квадрат числа</th>
                 </tr>
             </thead>
         </table>

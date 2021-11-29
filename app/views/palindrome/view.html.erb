@@ -3,13 +3,13 @@
 <% if @error %>
 <p class = "text-danger"><%= @error %></p>
 <% else %>
-<div>You entered: <%= @input %></div>
-<div>Answer: <%= @result %></div><br/>
+<div>Вы ввели: <%= @input %></div>
+<div>Ответ: <%= @result %></div><br/>
     <table class="table table-striped">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Number</th>
-            <th scope="col">Square</th>
+            <th scope="col">Число</th>
+            <th scope="col">Квадрат числа</th>
         </tr>
         <% @numbers&.each_with_index do |numbers, i| %>
         <tr>
@@ -21,5 +21,5 @@
     </table><br/>
 <% end %>
 <button type="button" class="btn btn-link">
-    <%= link_to "Repeat calculation", root_path %>
+    <%= link_to "Вернуться", root_path %>
 </button>

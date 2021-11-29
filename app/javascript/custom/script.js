@@ -33,7 +33,7 @@ function show_result(data) {
     answer_output.style.display = "block";
     table.style.display = "none";
     error_output.style.display = "none";
-    input_output.innerText = `You entered: ${document.getElementById("input_number").value}`;
+    input_output.innerText = `Вы ввели: ${document.getElementById("input_number").value}`;
 
     for (let i = 0; i < table.tBodies.length; i++) {
         table.removeChild(table.tBodies[i]);
@@ -45,7 +45,7 @@ function show_result(data) {
         for (let i = 0; i < data.length; i++) {
             switch (data[i].name) {
                 case "result": {
-                    answer_output.innerText = `Answer: ${data[i].value}`;
+                    answer_output.innerText = `Ответ: ${data[i].value}`;
                     break;
                 }
                 case "numbers": {

@@ -13,9 +13,9 @@ class PalindromeController < ApplicationController
     @numbers = (0..@input).select { |i| palindrome?(i * i) }
     @result = @numbers.size
   rescue ArgumentError
-    @error = 'Incorrect input'
+    @error = 'Некорректный ввод!'
   rescue StandardError
-    @error = 'You have to enter something'
+    @error = 'Пустой ввод. Введите что-нибудь!'
   ensure
     respond_to do |format|
       format.html
