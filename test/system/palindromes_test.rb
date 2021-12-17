@@ -6,7 +6,6 @@ require 'application_system_test_case'
 class PalindromesTest < ApplicationSystemTestCase
   setup do
     @driver = Capybara.current_session.driver.browser
-    @vars = {}
   end
 
   test 'checking error message for input with string' do
@@ -14,7 +13,7 @@ class PalindromesTest < ApplicationSystemTestCase
     @driver.find_element(:id, 'input_number').send_keys('zxcursed?')
     @driver.find_element(:id, 'btn_commit').click
     assert_selector '#input_output', text: 'zxcursed?'
-    assert_selector '#error_output', text: 'Incorrect input'
+    assert_selector '#error_output', text: 'Некорректный ввод!'
   end
 
   test 'checking error message for input more than one number' do
@@ -22,13 +21,13 @@ class PalindromesTest < ApplicationSystemTestCase
     @driver.find_element(:id, 'input_number').send_keys('1 2')
     @driver.find_element(:id, 'btn_commit').click
     assert_selector '#input_output', text: '1 2'
-    assert_selector '#error_output', text: 'Incorrect input'
+    assert_selector '#error_output', text: 'Некорректный ввод!'
   end
 
   test 'checking error message for empty input' do
     @driver.get(root_url)
     @driver.find_element(:id, 'btn_commit').click
-    assert_selector '#error_output', text: 'You have to enter something'
+    assert_selector '#error_output', text: 'Пустой ввод. Введите что-нибудь!'
   end
 
   test 'checking correct response for n = 100' do
